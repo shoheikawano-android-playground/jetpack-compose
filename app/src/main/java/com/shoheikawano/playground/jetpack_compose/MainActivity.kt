@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.compose.state
 import androidx.compose.unaryPlus
-import androidx.ui.core.*
-import androidx.ui.foundation.Dialog
-import androidx.ui.foundation.DrawImage
-import androidx.ui.foundation.VerticalScroller
-import androidx.ui.foundation.shape.corner.RoundedCornerShape
+import androidx.ui.core.Text
+import androidx.ui.core.dp
+import androidx.ui.core.setContent
+import androidx.ui.core.sp
 import androidx.ui.graphics.Color
-import androidx.ui.layout.*
+import androidx.ui.layout.Column
+import androidx.ui.layout.Container
+import androidx.ui.layout.HeightSpacer
+import androidx.ui.layout.Spacing
+import androidx.ui.material.AlertDialog
 import androidx.ui.material.MaterialTheme
 import androidx.ui.res.imageResource
 import androidx.ui.text.TextStyle
@@ -35,14 +38,17 @@ fun dialog() {
 
     MaterialTheme {
         if (openDialog.value) {
-            Dialog(onCloseRequest = { openDialog.value = false }) {
+            AlertDialog(
+                text = {},
+                onCloseRequest = { openDialog.value = false }
+            ) {
                 MaterialTheme {
                     Text(
-                            style = TextStyle(
-                                    color = Color.Black,
-                                    fontSize = 24.sp
-                            ),
-                            text = "Dialog"
+                        style = TextStyle(
+                            color = Color.Black,
+                            fontSize = 24.sp
+                        ),
+                        text = "Dialog"
                     )
                 }
             }
@@ -54,8 +60,8 @@ fun dialog() {
 fun greetings() {
     for (i in 0..10) {
         Text(
-                text = "Android$i",
-                style = TextStyle(fontSize = 24.sp)
+            text = "Android$i",
+            style = TextStyle(fontSize = 24.sp)
         )
     }
 }
@@ -63,24 +69,20 @@ fun greetings() {
 @Composable
 fun cardImage() {
     Container(
-            modifier = Spacing(16.dp),
-            expanded = true,
-            height = 180.dp
+        modifier = Spacing(16.dp),
+        expanded = true,
+        height = 180.dp
     ) {
-        Clip(shape = RoundedCornerShape(8.dp)) {
-            DrawImage(image = +imageResource(R.drawable.ic_header))
-        }
+        imageResource(R.drawable.ic_header)
     }
 }
 
 @Composable
 fun mainContent() {
-    VerticalScroller {
-        Column(crossAxisSize = LayoutSize.Expand) {
-            cardImage()
-            greetings()
-            HeightSpacer(16.dp)
-        }
+    Column {
+        cardImage()
+        greetings()
+        HeightSpacer(16.dp)
     }
 }
 
