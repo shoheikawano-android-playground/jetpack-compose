@@ -47,9 +47,17 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.2.0-alpha01'
     implementation 'androidx.core:core-ktx:1.2.0-rc01'
+
+    implementation 'androidx.ui:ui-core:0.1.0-dev03'
+    implementation 'androidx.ui:ui-framework:0.1.0-dev03'
+    implementation 'androidx.ui:ui-platform:0.1.0-dev03'
+    implementation 'androidx.ui:ui-text:0.1.0-dev03'
+    implementation 'androidx.ui:ui-animation:0.1.0-dev03'
+    implementation 'androidx.ui:ui-vector:0.1.0-dev03'
     implementation 'androidx.ui:ui-layout:0.1.0-dev03'
     implementation 'androidx.ui:ui-material:0.1.0-dev03'
     implementation 'androidx.ui:ui-tooling:0.1.0-dev03'
+
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2-alpha03'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha03'
